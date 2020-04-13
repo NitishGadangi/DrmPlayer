@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".MainActivity">
+
+<!--    <com.google.android.exoplayer2.ui.PlayerView-->
+<!--        android:id="@+id/videoFullScreenPlayer"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:background="#A6000000"-->
+<!--        app:controller_layout_id="@layout/exo_playback_control_view"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="1.0"-->
+<!--        app:player_layout_id="@layout/exo_simple_player_view"-->
+<!--        app:repeat_toggle_modes="none"-->
+<!--        app:show_timeout="45000"-->
+<!--        app:surface_type="texture_view" />-->
+
+<!--    <com.github.vkay94.dtpv.DoubleTapPlayerView-->
+<!--        android:id="@+id/videoFullScreenPlayer"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:background="#A6000000"-->
+<!--        app:controller_layout_id="@layout/exo_playback_control_view"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="1.0"-->
+<!--        app:player_layout_id="@layout/exo_simple_player_view"-->
+<!--        app:repeat_toggle_modes="none"-->
+<!--        app:show_timeout="45000"-->
+<!--        app:surface_type="texture_view" />-->
+
+<!--    <ProgressBar-->
+<!--        android:id="@+id/spinnerVideoDetails"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        android:layout_marginEnd="8dp"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:indeterminate="true"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <com.github.vkay94.dtpv.YouTubeDoubleTap-->
+<!--        android:background="@color/dtp_overlay_dim"-->
+<!--        android:id="@+id/youTubeDoubleTap"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+
+    <LinearLayout
+        android:id="@+id/small_holder_exo"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:id="@+id/frame_exo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right">
+
+            <com.github.vkay94.dtpv.DoubleTapPlayerView
+                android:id="@+id/videoFullScreenPlayer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#A6000000"
+                app:controller_layout_id="@layout/exo_playback_control_view"
+                app:repeat_toggle_modes="none"
+                app:show_timeout="45000"
+                app:surface_type="texture_view" />
+
+            <ProgressBar
+                android:id="@+id/spinnerVideoDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:indeterminate="true" />
+
+            <com.github.vkay94.dtpv.YouTubeDoubleTap
+                android:id="@+id/youTubeDoubleTap"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/dtp_overlay_dim" />
+
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_open_full"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="full"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/small_holder_exo" />
+
+    <com.flaviofaria.kenburnsview.KenBurnsView
+        android:id="@+id/image"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:src="@drawable/test"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
