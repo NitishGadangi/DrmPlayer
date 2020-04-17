@@ -72,9 +72,21 @@ public class Dummy extends AppCompatActivity {
                 if (temp_ua.equals("")||temp_ua.equals(null)){
                     temp_ua=Util.getUserAgent(getApplicationContext(), getString(R.string.app_name));
                 }
+                String ref = et_referer.getText().toString();
+                String drm = et_drmUrl.getText().toString();
+
+
+                if (drm.equals("")||drm.equals(null)){
+                    drm="NONE";
+                }
+
+                Log.i("HH_UA",temp_ua);
+                Log.i("HH_Ref","s"+ref);
+                Log.i("HH_drm","s"+drm);
+
                 Intent mIntent = MainActivity.getStartIntent(getApplicationContext(),
                         editText.getText().toString(),editText2.getText().toString(),
-                        temp_ua,et_referer.getText().toString(),et_drmUrl.getText().toString());
+                        temp_ua,ref,drm);
                 startActivity(mIntent);
             }
         });

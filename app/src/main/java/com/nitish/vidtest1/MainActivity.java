@@ -136,9 +136,11 @@ public class MainActivity extends AppCompatActivity implements Player.EventListe
             drmUrl=getIntent().getStringExtra("DRM");
         }
 
-        if (!drmUrl.equals("NONE") || !drmUrl.equals("") || !drmUrl.equals(null)){
+        if (!drmUrl.equals("NONE")){
             isDrm=true;
         }
+
+
 
         getWindow().getDecorView().setOnSystemUiVisibilityChangeListener(
                 new View.OnSystemUiVisibilityChangeListener() {
@@ -165,10 +167,16 @@ public class MainActivity extends AppCompatActivity implements Player.EventListe
                         super.onBackPressed();
                         Log.i("DIAG_TEST","Clicked");
                         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                        if (frame_exo.getParent()!=null){
+                            ((ViewGroup)frame_exo.getParent()).removeView(frame_exo);
+                        }
                         small_holder_exo.addView(frame_exo,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
                     }
                 };
+                if (frame_exo.getParent()!=null){
+                    ((ViewGroup)frame_exo.getParent()).removeView(frame_exo);
+                }
                 mFullScreenDialog.addContentView(frame_exo,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                 mFullScreenDialog.show();
                 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
