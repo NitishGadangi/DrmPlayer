@@ -90,7 +90,11 @@ public class MainActivity extends AppCompatActivity implements Player.EventListe
 
     DefaultHttpDataSourceFactory dataSourceFactory;
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        releasePlayer();
+    }
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -230,8 +234,6 @@ public class MainActivity extends AppCompatActivity implements Player.EventListe
                 dataSourceFactory.getDefaultRequestProperties().set("Referer",referer);
 
 
-
-
             DefaultRenderersFactory renderersFactory ;
             renderersFactory= new DefaultRenderersFactory(this);
             if(isDrm){
@@ -249,15 +251,17 @@ public class MainActivity extends AppCompatActivity implements Player.EventListe
                     .setContentType(C.CONTENT_TYPE_MOVIE)
                     .build();
             player.setAudioAttributes(audioAttributes, /* handleAudioFocus= */ true);
+
+            youTubeDoubleTap
+                    .setPlayer(videoFullScreenPlayer)
+                    .setForwardRewindIncrementMs(10000);
+            videoFullScreenPlayer
+                    .activateDoubleTap(true)
+                    .setDoubleTapDelay(500)
+                    .setDoubleTapListener(youTubeDoubleTap);
         }
 
-        youTubeDoubleTap
-                .setPlayer(videoFullScreenPlayer)
-                .setForwardRewindIncrementMs(10000);
-        videoFullScreenPlayer
-                .activateDoubleTap(true)
-                .setDoubleTapDelay(500)
-                .setDoubleTapListener(youTubeDoubleTap);
+
 
 
     }
@@ -327,6 +331,7 @@ public class MainActivity extends AppCompatActivity implements Player.EventListe
 
     private void releasePlayer() {
         if (player != null) {
+            player.stop();
             player.release();
             player = null;
         }
@@ -366,6 +371,9 @@ public class MainActivity extends AppCompatActivity implements Player.EventListe
         super.onDestroy();
         releasePlayer();
     }
+
+
+
 
     @Override
     public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
