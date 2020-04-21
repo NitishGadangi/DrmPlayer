@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "295403314417",
+    "firebase_url": "https://vidflix-5d55e.firebaseio.com",
+    "project_id": "vidflix-5d55e",
+    "storage_bucket": "vidflix-5d55e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295403314417:android:da0e6da0462192556fdd50",
+        "android_client_info": {
+          "package_name": "nitish.vidflix1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295403314417-tsu71s75bmiuo06af7aau0pdjnq2jm25.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCySAkzM-WRvDFoqTibY1dZ6DJEIBVln94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295403314417-tsu71s75bmiuo06af7aau0pdjnq2jm25.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
