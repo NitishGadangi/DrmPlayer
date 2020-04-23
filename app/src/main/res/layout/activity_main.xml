@@ -82,7 +82,7 @@
             android:layout_gravity="right">
 
             <com.github.vkay94.dtpv.DoubleTapPlayerView
-                android:id="@+id/videoFullScreenPlayer"
+                android:id="@+id/videoFullScreenPlayer1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#A6000000"
@@ -92,7 +92,7 @@
                 app:surface_type="texture_view" />
 
             <ProgressBar
-                android:id="@+id/spinnerVideoDetails"
+                android:id="@+id/spinnerVideoDetails1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -104,7 +104,7 @@
                 android:indeterminate="true" />
 
             <com.github.vkay94.dtpv.YouTubeDoubleTap
-                android:id="@+id/youTubeDoubleTap"
+                android:id="@+id/youTubeDoubleTap1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/dtp_overlay_dim" />
@@ -113,11 +113,46 @@
         </FrameLayout>
     </LinearLayout>
 
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/videoFullScreenPlayer"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:background="#A6000000"
+        app:controller_layout_id="@layout/exo_playback_control_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:repeat_toggle_modes="none"
+        app:show_timeout="45000"
+        app:surface_type="texture_view" />
+
+    <ProgressBar
+        android:id="@+id/spinnerVideoDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        app:layout_constraintBottom_toBottomOf="@+id/videoFullScreenPlayer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/videoFullScreenPlayer" />
+
+    <com.github.vkay94.dtpv.YouTubeDoubleTap
+        android:id="@+id/youTubeDoubleTap"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:background="@color/dtp_overlay_dim"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/btn_open_full"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="full"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/small_holder_exo" />
@@ -130,6 +165,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:src="@drawable/test"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

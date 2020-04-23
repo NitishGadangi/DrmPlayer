@@ -52,6 +52,7 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
+import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultAllocator;
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements Player.EventListe
 
     YouTubeDoubleTap youTubeDoubleTap;
 
-    DoubleTapPlayerView videoFullScreenPlayer;
+    PlayerView videoFullScreenPlayer;
     ProgressBar spinnerVideoDetails;
     ImageView imageViewExit;
 
@@ -252,13 +253,13 @@ public class MainActivity extends AppCompatActivity implements Player.EventListe
                     .build();
             player.setAudioAttributes(audioAttributes, /* handleAudioFocus= */ true);
 
-            youTubeDoubleTap
-                    .setPlayer(videoFullScreenPlayer)
-                    .setForwardRewindIncrementMs(10000);
-            videoFullScreenPlayer
-                    .activateDoubleTap(true)
-                    .setDoubleTapDelay(500)
-                    .setDoubleTapListener(youTubeDoubleTap);
+//            youTubeDoubleTap
+//                    .setPlayer(videoFullScreenPlayer)
+//                    .setForwardRewindIncrementMs(10000);
+//            videoFullScreenPlayer
+//                    .activateDoubleTap(true)
+//                    .setDoubleTapDelay(500)
+//                    .setDoubleTapListener(youTubeDoubleTap);
         }
 
 
